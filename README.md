@@ -17,7 +17,7 @@ Sandbox API Repository to describe, develop, document, and test the ApplicationP
 
 * Service API(s) “ApplicationProfiles” (see APIBacklog.md) 
 * The API(s) provide(s) the API consumer with the ability to:  
-  * §Short API scope description§ !! Add here a scope description according to the API proposal
+  * Application profiles allows application developers to share all the information about their application which would be relevant for network CAMARA APIs related decision making.
 * Describe, develop, document, and test the API(s)
 * Started: October 2024 (within ConnectivityInsights, own repository since March 2025)
 <!-- * Incubating stage since: §incubation date$ --> 

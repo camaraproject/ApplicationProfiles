@@ -50,8 +50,7 @@ paths:
             - application-profiles:create
       tags:
         - Application Profiles
-      summary: |
-        create a profile which represents an application's networking demands.
+      summary: Create an Application Profile
       description: |
         Define network monitoring intents for optimal end user application
         experience.
@@ -91,6 +90,7 @@ paths:
             - application-profiles:update
       tags:
         - Application Profiles
+      summary: Update an Application Profile
       description: |
         Update the complete set of network quality thresholds for an
         application with the new set of thresholds to ensure good
@@ -140,6 +140,7 @@ paths:
             - application-profiles:read
       tags:
         - Application Profiles
+      summary: Get an Application Profile
       description: Read an Application Profile
       operationId: readApplicationProfile
       parameters:
@@ -174,15 +175,16 @@ paths:
     delete:
       security:
         - openId:
-            - application-profile:delete
+            - application-profiles:delete
       tags:
         - Application Profiles
-      description: delete
+      summary: Delete an Application Profile
+      description: Delete an application profile
       operationId: deleteApplicationProfile
       parameters:
         - name: applicationProfileId
           in: path
-          description: subscription Id
+          description: Identifier for the Application Profile
           required: true
           style: simple
           explode: false
@@ -191,8 +193,8 @@ paths:
             format: uuid
         - $ref: "#/components/parameters/x-correlator"
       responses:
-        "200":
-          description: application profile has been deleted
+        "204":
+          description: Application profile has been deleted successfully.
         "400":
           $ref: "#/components/responses/Generic400"
         "401":
@@ -360,7 +362,7 @@ components:
           $ref: "#/components/schemas/TargetMinDownstreamRate"
         targetMinUpstreamRate:
           $ref: "#/components/schemas/TargetMinUpstreamRate"
-        packetlossErrorRate:
+        packetLossErrorRate:
           $ref: "#/components/schemas/PacketErrorLossRate"
         jitter:
           $ref: "#/components/schemas/Jitter"

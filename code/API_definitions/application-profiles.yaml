@@ -7,14 +7,15 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   description: |
-    Application profiles allows application developers to share all the
-    information about their application which would be relevant for network/
-    CAMARA APIs related decision making.
+    Application profiles allow developers to specify all relevant information about
+    their application for both network and compute resource requirements, supporting
+    CAMARA APIs and network decision making.
 
-    To start with the API will provide operations to define, read and manage
-    an application's thresholds for network quality (latency, jitter, loss,
-    throughput). This scope will be expanded further based on addtional
-    requirements from other applicable CAMARA APIs
+    This API enables defining, reading, and managing application requirements, including:
+    - Network quality thresholds (latency, jitter, loss, throughput)
+    - Compute resource thresholds (CPU, GPU, memory, storage)
+
+    The scope will expand as new requirements from CAMARA APIs emerge.
 
     ## Errors
 
@@ -25,23 +26,35 @@ info:
     with an explanation.
 
     ### Additional CAMARA error responses
-    The list of error codes in this API specification is not exhaustive. Therefore
-    the API specification may not document some non-mandatory error statuses as
-    indicated in `CAMARA API Design Guidelines`.
+    The list of error codes in this API specification is not exhaustive.
+    Therefore the API specification may not document some non-mandatory error
+    statuses as indicated in `CAMARA API Design Guidelines`.
 
-    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated
-    to this API version for a complete list of error responses.
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release
+    associated to this API version for a complete list of error responses.
 
-    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error
-    response if it is explicitly documented in the API.
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible
+    error response if it is explicitly documented in the API.
 
     # Authorization and authentication
 
-    The "Camara Security and Interoperability Profile" provides details of how an API consumer requests an access token. Please refer to Identity and Consent Management (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the profile.
+    The "Camara Security and Interoperability Profile" provides details of how
+    an API consumer requests an access token. Please refer to Identity and
+    Consent Management
+    (https://github.com/camaraproject/IdentityAndConsentManagement/) for the
+    released version of the profile.
 
-    The specific authorization flows to be used will be agreed upon during the onboarding process, happening between the API consumer and the API provider, taking into account the declared purpose for accessing the API, whilst also being subject to the prevailing legal framework dictated by local legislation.
+    The specific authorization flows to be used will be agreed upon during the
+    onboarding process, happening between the API consumer and the API provider,
+    taking into account the declared purpose for accessing the API, whilst also
+    being subject to the prevailing legal framework dictated by local
+    legislation.
 
-    In cases where personal data is processed by the API and users can exercise their rights through mechanisms such as opt-in and/or opt-out, the use of three-legged access tokens is mandatory. This ensures that the API remains in compliance with privacy regulations, upholding the principles of transparency and user-centric privacy-by-design.
+    In cases where personal data is processed by the API and users can exercise
+    their rights through mechanisms such as opt-in and/or opt-out, the use of
+    three-legged access tokens is mandatory. This ensures that the API remains
+    in compliance with privacy regulations, upholding the principles of
+    transparency and user-centric privacy-by-design.
 
   contact:
     email: sp-edc@lists.camaraproject.org
@@ -293,6 +306,26 @@ components:
         - Gbps
         - Tbps
 
+    Compute:
+      type: object
+      properties:
+        value:
+          type: integer
+          example: 10
+          format: int32
+          minimum: 0
+          maximum: 1024
+        unit:
+          $ref: "#/components/schemas/ComputeUnitEnum"
+
+    ComputeUnitEnum:
+      type: string
+      enum:
+        - kb
+        - Mb
+        - Gb
+        - Tb
+
     PacketDelayBudget:
       description: |
         The packet delay budget is the maximum allowable one-way latency
@@ -352,17 +385,54 @@ components:
       allOf:
         - $ref: "#/components/schemas/Rate"
 
+    targetMinCPU:
+      type: number
+      description: >
+        Number of vCPUs required for the application. Fractional values are allowed
+        (e.g., 0.5 = half a vCPU). The value represents the minimum amount of CPU
+        resources to be allocated to the application instance.
+      example: 0.5
+
+    targetMinGPU:
+      description: |
+        This is the target minimun GPUs required by the application
+      format: integer
+      example: 1
+
+    targetMinMemory:
+      description: |
+        This is the target minimum memory required by the application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
+    targetMinEphemeralStorage:
+      description: |
+        This is the target minimum ephemeral storage required by the application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
+    targetMinPersistentStorage:
+      description: |
+        This is the target minimum persistent storage required by the
+        application
+      allOf:
+        - $ref: "#/components/schemas/Compute"
+
     ApplicationProfile:
       type: object
       required:
         - applicationProfileId
-        - networkQualityThresholds
       properties:
         applicationProfileId:
           type: string
           format: uuid
         networkQualityThresholds:
           $ref: "#/components/schemas/NetworkQualityThresholds"
+        computeResources:
+          $ref: "#/components/schemas/ComputeResourcesThresholds"
+      anyOf:
+        - required: [networkQualityThresholds]
+        - required: [computeResources]
 
     ApplicationProfileRequest:
       type: object
@@ -371,6 +441,8 @@ components:
       properties:
         networkQualityThresholds:
           $ref: "#/components/schemas/NetworkQualityThresholds"
+        computeResources:
+          $ref: "#/components/schemas/ComputeResourcesThresholds"
 
     NetworkQualityThresholds:
       type: object
@@ -385,6 +457,25 @@ components:
           $ref: "#/components/schemas/PacketErrorLossRate"
         jitter:
           $ref: "#/components/schemas/Jitter"
+      minProperties: 1
+
+    ComputeResourcesThresholds:
+      type: object
+      properties:
+        targetMinCPU:
+          $ref: "#/components/schemas/targetMinCPU"
+        targetMinMemory:
+          $ref: "#/components/schemas/targetMinMemory"
+        targetMinGPU:
+          $ref: "#/components/schemas/targetMinGPU"
+        targetMinGPUMemory:
+          $ref: "#/components/schemas/targetMinMemory"
+        targetMinEphemeralStorage:
+          $ref: "#/components/schemas/targetMinEphemeralStorage"
+        targetMinPersistentStorage:
+          $ref: "#/components/schemas/targetMinPersistentStorage"
+      description: Compute resources of a Application Profile
+      minProperties: 1
 
     ErrorInfo:
       type: object
@@ -430,9 +521,12 @@ components:
               value:
                 status: 400
                 code: INVALID_ARGUMENT
-                message: Client specified an invalid argument, request body or query param.
+                message: Client specified an invalid argument, request body
+                  or query param.
             GENERIC_400_OUT_OF_RANGE:
-              description: Out of Range. Specific Syntax Exception used when a given field has a pre-defined range or a invalid filter criteria combination is requested
+              description: Out of Range. Specific Syntax Exception used when
+                a given field has a pre-defined range or a invalid filter
+                criteria combination is requested
               value:
                 status: 400
                 code: OUT_OF_RANGE
@@ -488,13 +582,17 @@ components:
                       - INVALID_TOKEN_CONTEXT
           examples:
             GENERIC_403_PERMISSION_DENIED:
-              description: Permission denied. OAuth2 token access does not have the required scope or when the user fails operational security
+              description: Permission denied. OAuth2 token access does not
+                have the required scope or when the user fails operational
+                security
               value:
                 status: 403
                 code: PERMISSION_DENIED
-                message: Client does not have sufficient permissions to perform this action.
+                message: Client does not have sufficient permissions to
+                  perform this action.
             GENERIC_403_INVALID_TOKEN_CONTEXT:
-              description: Reflect some inconsistency between information in some field of the API and the related OAuth2 Token
+              description: Reflect some inconsistency between information in
+                some field of the API and the related OAuth2 Token
               value:
                 status: 403
                 code: INVALID_TOKEN_CONTEXT
@@ -552,13 +650,15 @@ components:
                       - TOO_MANY_REQUESTS
           examples:
             GENERIC_429_QUOTA_EXCEEDED:
-              description: Request is rejected due to exceeding a business quota limit
+              description: Request is rejected due to exceeding a business
+                quota limit
               value:
                 status: 429
                 code: QUOTA_EXCEEDED
                 message: Out of resource quota.
             GENERIC_429_TOO_MANY_REQUESTS:
-              description: Access to the API has been temporarily blocked due to rate or spike arrest limits being reached
+              description: Access to the API has been temporarily blocked due
+                to rate or spike arrest limits being reached
               value:
                 status: 429
                 code: TOO_MANY_REQUESTS

@@ -1,6 +1,6 @@
 # API Readiness Checklist
 
-Checklist for application-profiles v0.5.0-alpha.1 in Fall 25 alpha milestone
+Checklist for application-profiles v0.5.0-rc.1 in r3.1
 
 | Nr | API release assets  | alpha | release-candidate |  initial<br>public | stable<br> public | Status | Reference information |
 |----|----------------------------------------------|:-----:|:-----------------:|:-------:|:------:|:----:|----|

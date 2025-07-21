@@ -16,7 +16,7 @@ info:
 
     The information captured as part of application profiles can be used in different usecases for decision making. Please refer connectivity insights and session insights for more details as a reference to see how the information in application profiles is used for decision making.
     The scope will expand as new requirements from CAMARA APIs emerge.
-
+    
     ## Errors
 
     If the authentication token is not valid, a `401 UNAUTHENTICATED` error is
@@ -26,12 +26,15 @@ info:
     with an explanation.
 
     ### Additional CAMARA error responses
+
     The list of error codes in this API specification is not exhaustive.
     Therefore the API specification may not document some non-mandatory error
-    statuses as indicated in `CAMARA API Design Guidelines`.
+    statuses as indicated in `CAMARA API Design Guide`.
 
     Please refer to the `CAMARA_common.yaml` of the Commonalities Release
     associated to this API version for a complete list of error responses.
+    The applicable Commonalities Release can be identified in the `API
+    Readiness Checklist` document associated to this API version.
 
     As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible
     error response if it is explicitly documented in the API.

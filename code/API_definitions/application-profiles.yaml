@@ -58,7 +58,9 @@ info:
 
   contact:
     email: sp-edc@lists.camaraproject.org
-
+externalDocs:
+  description: Project documentation at Camara
+  url: https://github.com/camaraproject/ApplicationProfiles
 servers:
   - url: "{apiRoot}/application-profiles/vwip"
     variables:

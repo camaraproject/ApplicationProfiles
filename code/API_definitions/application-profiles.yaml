@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Connectivity Insights - Application Profiles
   x-camara-commonalities: 0.6
-  version: wip
+  version: 0.5.0
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -64,7 +64,7 @@ externalDocs:
   description: Project documentation at Camara
   url: https://github.com/camaraproject/ApplicationProfiles
 servers:
-  - url: "{apiRoot}/application-profiles/vwip"
+  - url: "{apiRoot}/application-profiles/v0.5"
     variables:
       apiRoot:
         default: https://localhost:9091
@@ -498,7 +498,6 @@ components:
 
     ErrorInfo:
       type: object
-      description: Error information
       required:
         - status
         - code
@@ -506,13 +505,13 @@ components:
       properties:
         status:
           type: integer
-          description: HTTP status code returned along with this error response
+          description: HTTP response status code
         code:
           type: string
-          description: Code given to this error
+          description: A human-readable code to describe the error
         message:
           type: string
-          description: Detailed error description
+          description: A human-readable description of what the event represents
 
   responses:
     Generic400:

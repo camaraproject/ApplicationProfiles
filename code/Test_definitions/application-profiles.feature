@@ -1,11 +1,12 @@
   @Application_Profiles
-Feature: CAMARA Application Profiles API, vwip - Operations for Application Profiles
+Feature: CAMARA Application Profiles API, v0.5.0 - Operations for Application Profiles
 
 # Input to be provided by the implementation to the tests
 # References to OAS spec schemas refer to schemas specified in application-profiles.yaml
 
   Background: Common Application Profiles setup
-    Given the resource "{apiroot}/application-profiles/vwip" as base-url
+    Given an environment at "apiRoot"
+    And the resource "/application-profiles/v0.5"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
     And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"

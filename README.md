@@ -24,15 +24,19 @@ Sandbox API Repository to describe, develop, document, and test the ApplicationP
 
 ## Release Information
 
-**NEW**: First pre-release [r1.1](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r1.1) with application-profiles v0.5.0-rc.1 is available.
+**NEW**: public release [r1.2](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r1.2) is available with the following API versions:
+
+ *  **application-profiles v0.5.0**
+    [[View it on ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml&nocors)
+    [[View it on Swagger Editor]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
+    [[OpenAPI]](https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
 
 Prior releases of application-profiles (as a sub project in connectivity insights) up to version 0.4.0 as part of the Fall25 meta-release are available within [ConnectivityInsights](https://github.com/camaraproject/ConnectivityInsights/releases).
 
-<!-- Optional: an explicit listing of the latest (pre-)release with additional information, e.g. links to the API definitions -->
-<!-- In addition use/uncomment one or multiple the following alternative options when becoming applicable -->
-Pre-releases of this sub project are available in https://github.com/camaraproject/ApplicationProfiles/releases
-<!-- The latest public release is available here: https://github.com/camaraproject/ApplicationProfiles/releases/latest -->
-For changes see [CHANGELOG.md](https://github.com/camaraproject/ApplicationProfiles/blob/main/CHANGELOG.md)
+
+* The latest public release is available here: https://github.com/camaraproject/ApplicationProfiles/releases/latest
+* Other releases of this sub project are available in https://github.com/camaraproject/ApplicationProfiles/releases
+* For changes see [CHANGELOG.md](https://github.com/camaraproject/ApplicationProfiles/blob/main/CHANGELOG.md)
 
 ## Contributing
 * Meetings are held virtually together with ConnectivityInsights

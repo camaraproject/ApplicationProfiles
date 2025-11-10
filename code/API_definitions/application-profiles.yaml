@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Connectivity Insights - Application Profiles
   x-camara-commonalities: 0.6
-  version: 0.5.0
+  version: wip
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
@@ -64,7 +64,7 @@ externalDocs:
   description: Project documentation at Camara
   url: https://github.com/camaraproject/ApplicationProfiles
 servers:
-  - url: "{apiRoot}/application-profiles/v0.5"
+  - url: "{apiRoot}/application-profiles/vwip"
     variables:
       apiRoot:
         default: https://localhost:9091

@@ -22,21 +22,25 @@ Sandbox API Repository to describe, develop, document, and test the ApplicationP
 * Started: October 2024 (within ConnectivityInsights, own repository since March 2025)
 <!-- * Incubating stage since: §incubation date$ -->
 
+<!-- CAMARA:RELEASE-INFO:START -->
+<!-- This section is automatically maintained by the CAMARA project-administration tooling: https://github.com/camaraproject/project-administration -->
+
 ## Release Information
 
-**NEW**: public release [r1.2](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r1.2) is available with the following API versions:
+> [!NOTE]
+> Please be aware that the project will have frequent updates to the main branch. There are no compatibility guarantees associated with code in any branch, including main, until a new release is created. For example, changes may be reverted before a release is created. **For best results, use the latest available release**.
 
- *  **application-profiles v0.5.0**
-    [[View it on ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml&nocors)
-    [[View it on Swagger Editor]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
-    [[OpenAPI]](https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
-
-Prior releases of application-profiles (as a sub project in connectivity insights) up to version 0.4.0 as part of the Fall25 meta-release are available within [ConnectivityInsights](https://github.com/camaraproject/ConnectivityInsights/releases).
-
-
-* The latest public release is available here: https://github.com/camaraproject/ApplicationProfiles/releases/latest
-* Other releases of this sub project are available in https://github.com/camaraproject/ApplicationProfiles/releases
+* **NEW**: The latest public release is [r1.2](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r1.2) (Fall25), with the following API versions:
+  * **application-profiles v0.5.0**
+  [[YAML]](https://github.com/camaraproject/ApplicationProfiles/blob/r1.2/code/API_definitions/application-profiles.yaml)
+  [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml&nocors)
+  [[Swagger]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r1.2/code/API_definitions/application-profiles.yaml)
+* The latest public release is always available here: https://github.com/camaraproject/ApplicationProfiles/releases/latest
+* Other releases of this repository are available in https://github.com/camaraproject/ApplicationProfiles/releases
 * For changes see [CHANGELOG.md](https://github.com/camaraproject/ApplicationProfiles/blob/main/CHANGELOG.md)
+
+_The above section is automatically synchronized by CAMARA project-administration._
+<!-- CAMARA:RELEASE-INFO:END -->
 
 ## Contributing
 * Meetings are held virtually together with ConnectivityInsights

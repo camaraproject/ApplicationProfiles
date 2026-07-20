@@ -380,13 +380,13 @@ components:
       allOf:
         - $ref: "#/components/schemas/Rate"
 
-    TargetMinCPU:
+    TargetMinCpu:
       type: number
       description:
         Number of vCPUs required for the application. Fractional values are allowed (e.g., 0.5 = half a vCPU). The value represents the minimum amount of CPU resources to be allocated to the application instance.
       example: 0.5
 
-    TargetMinGPU:
+    TargetMinGpu:
       description: |
         This is the target minimum number of GPUs required by the application.
       type: integer
@@ -480,7 +480,7 @@ components:
       type: object
       properties:
         targetMinCPU:
-          $ref: "#/components/schemas/TargetMinCPU"
+          $ref: "#/components/schemas/TargetMinCpu"
         targetMinMemory:
           $ref: "#/components/schemas/TargetMinMemory"
         gpuVendorType:
@@ -488,7 +488,7 @@ components:
         gpuModelName:
           $ref: "#/components/schemas/GpuModelName"
         targetMinGPU:
-          $ref: "#/components/schemas/TargetMinGPU"
+          $ref: "#/components/schemas/TargetMinGpu"
         targetMinGPUMemory:
           $ref: "#/components/schemas/TargetMinMemory"
         targetMinEphemeralStorage:

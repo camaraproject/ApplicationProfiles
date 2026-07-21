@@ -400,7 +400,7 @@ components:
       enum:
         - Nvidia
         - AMD
-      description: GPU vendor name e.g. NVIDIA, AMD etc.
+      description: GPU vendor name. Currently supported values are "Nvidia" or "AMD".
       example: Nvidia
 
     GpuModelName:

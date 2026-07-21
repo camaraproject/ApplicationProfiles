@@ -407,7 +407,7 @@ components:
       type: string
       maxLength: 256
       pattern: ^[^\r\n]*$
-      description: Model name corresponding to vendorType may include info e.g. for NVIDIA, model name could be "Tesla M60", "Tesla V100" etc.
+      description: Model name corresponding to vendorType may include info e.g. for Nvidia, model name could be "Tesla M60", "Tesla V100" etc.
 
     TargetMinMemory:
       description: |

@@ -46,7 +46,7 @@ Feature: CAMARA Application Profiles API, vwip - Operations for Application Prof
   Scenario: Delete an application profile successfully
     Given the path parameter "applicationProfileId" is set to the identifier of an existing application profile
     When the request "deleteApplicationProfile" is sent
-    Then the response code is 200
+    Then the response code is 204
     And the response header "x-correlator" has same value as the request header "x-correlator"
 
 ############### Error response scenarios ###########################

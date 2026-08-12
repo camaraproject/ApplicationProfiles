@@ -52,7 +52,7 @@ info:
     <!-- CAMARA:MANDATORY:request-body-strictness:END -->
 
 externalDocs:
-  description: Project documentation at CAMARA
+  description: Product documentation at CAMARA
   url: https://github.com/camaraproject/ApplicationProfiles
 servers:
   - url: "{apiRoot}/application-profiles/vwip"

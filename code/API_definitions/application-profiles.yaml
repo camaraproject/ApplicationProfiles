@@ -52,7 +52,7 @@ info:
     <!-- CAMARA:MANDATORY:request-body-strictness:END -->
 
 externalDocs:
-  description: Project documentation at Camara
+  description: Project documentation at CAMARA
   url: https://github.com/camaraproject/ApplicationProfiles
 servers:
   - url: "{apiRoot}/application-profiles/vwip"
@@ -144,7 +144,10 @@ paths:
         required: true
       responses:
         "200":
-          description: OK
+          description: 200 OK
+          headers:
+            x-correlator:
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"          
           content:
             application/json:
               schema:
@@ -184,6 +187,9 @@ paths:
       responses:
         "200":
           description: OK
+          headers:
+            x-correlator:
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
           content:
             application/json:
               schema:
@@ -223,6 +229,9 @@ paths:
       responses:
         "204":
           description: Application profile has been deleted successfully.
+          headers:
+            x-correlator:
+              $ref: "../common/CAMARA_common.yaml#/components/headers/x-correlator"
         "400":
           $ref: "#/components/responses/Generic400"
         "401":

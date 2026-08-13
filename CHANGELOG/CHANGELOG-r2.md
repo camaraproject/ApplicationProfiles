@@ -76,7 +76,9 @@ Changes documented below are compared to version 0.5.0.
 
 ### Fixed
 
-* N/A
+* fix: correct DELETE response code to 204 in test feature file by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/35
+* fix: align API with CAMARA Commonalities r4.3 validation requirements by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+* fix: added missing x-correlator headers to 200 / 204 responses by @Kevsy in https://github.com/camaraproject/ApplicationProfiles/pull/38
 
 ### Removed
 

@@ -2,7 +2,7 @@ repository:
   repository_name: ApplicationProfiles
   release_tag: r2.1
   release_type: pre-release-rc
-  release_date: null
+  release_date: '2026-08-19T23:33:52Z'
   src_commit_sha: 308e84d5b8eb923cf6fdd837e6a66780c0988b33
 apis:
 - api_name: application-profiles

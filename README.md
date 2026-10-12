@@ -40,9 +40,9 @@ Sandbox API Repository to describe, develop, document, and test the ApplicationP
 
 ### Upcoming Release Preview
 
-* Pre-release: [r2.1](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r2.1) (release candidate)
-  * **application-profiles 0.6.0-rc.1**
-  [[YAML]](https://github.com/camaraproject/ApplicationProfiles/blob/r2.1/code/API_definitions/application-profiles.yaml)  [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.1/code/API_definitions/application-profiles.yaml&nocors)  [[Swagger]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.1/code/API_definitions/application-profiles.yaml)
+* Pre-release: [r2.2](https://github.com/camaraproject/ApplicationProfiles/releases/tag/r2.2) (release candidate)
+  * **application-profiles 0.6.0-rc.2**
+  [[YAML]](https://github.com/camaraproject/ApplicationProfiles/blob/r2.2/code/API_definitions/application-profiles.yaml)  [[ReDoc]](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.2/code/API_definitions/application-profiles.yaml&nocors)  [[Swagger]](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.2/code/API_definitions/application-profiles.yaml)
 
 
 _The above section is automatically synchronized by CAMARA project-administration._

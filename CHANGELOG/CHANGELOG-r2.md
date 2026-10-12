@@ -57,15 +57,27 @@ Changes documented below are compared to version 0.6.0-rc.1.
 
 ### Breaking changes
 
-* N/A
+* `RateUnitEnum` values `Bps` and `Kbps` renamed to `bps` and `kbps` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `ComputeUnitEnum` values changed from `Kb`, `Mb`, `Gb`, `Tb` to `MB`, `GB`, `TB` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* PATCH request body no longer accepts `applicationProfileId`; the identifier is only passed as path parameter by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* operationId `readApplicationProfile` renamed to `getApplicationProfile` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinCPU` now limited to values between 0 and 1024 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 
 ### Added
 
-* N/A
+* Added test scenarios for request body validation, invalid path parameter, invalid `x-correlator`, 401 and 403 error cases by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 
 ### Changed
 
-* N/A
+* Synced with CAMARA Commonalities r4.4 / 0.9.0: error responses aligned with the r4.4 response catalogue, `info.description` mandatory sections updated by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `RateUnitEnum` values `Bps` and `Kbps` renamed to `bps` and `kbps` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `ComputeUnitEnum` values changed from `Kb`, `Mb`, `Gb`, `Tb` to `MB`, `GB`, `TB` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* PATCH request body no longer accepts `applicationProfileId`; the identifier is only passed as path parameter by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* operationId `readApplicationProfile` renamed to `getApplicationProfile` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinCPU` now limited to values between 0 and 1024 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `Duration.value` maximum raised from 500 to 999 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Tag and operation descriptions now mention compute resources as well as network quality by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Aligned test definitions with CAMARA r4.4 testing artifacts by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 
 ### Fixed
 
@@ -73,7 +85,7 @@ Changes documented below are compared to version 0.6.0-rc.1.
 
 ### Removed
 
-* N/A
+* Removed `400 OUT_OF_RANGE`, `403 INVALID_TOKEN_CONTEXT`, `404 IDENTIFIER_NOT_FOUND` and `429 QUOTA_EXCEEDED` error codes, which are not applicable to this API by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 
 **Full Changelog**: https://github.com/camaraproject/ApplicationProfiles/compare/r2.1...r2.2
 

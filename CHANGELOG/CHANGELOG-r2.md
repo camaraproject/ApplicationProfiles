@@ -93,6 +93,7 @@ Changes documented below are compared to version 0.5.0.
 * PATCH request body no longer accepts `applicationProfileId`; the identifier is only passed as path parameter by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 * operationId `readApplicationProfile` renamed to `getApplicationProfile` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
 * `targetMinCPU` now limited to values between 0 and 1024 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinGPU` now limited to values between 0 and 64 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
 * `Duration.value` now limited to a maximum of 999 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33 and https://github.com/camaraproject/ApplicationProfiles/pull/50
 * Request bodies containing properties not declared in the API specification are now rejected with `400 INVALID_ARGUMENT` (Commonalities "Request body strictness" rule) by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
 * Tag and operation descriptions now mention compute resources as well as network quality by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50

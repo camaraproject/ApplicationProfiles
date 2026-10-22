@@ -2,6 +2,7 @@
 
 <!-- TOC:START -->
 ## Table of Contents
+- **[r2.3](#r23)**
 - [r2.2](#r22)
 - [r2.1](#r21)
 <!-- TOC:END -->
@@ -14,6 +15,70 @@ The below sections record the changes for each API version in each release as fo
 * for the first release-candidate, all changes since the last public release
 * for subsequent release-candidate(s), only the delta to the previous release-candidate
 * for a public release, the consolidated changes since the previous public release
+
+# r2.3
+
+## Release Notes
+
+This public release contains the definition and documentation of
+* application-profiles 0.6.0
+
+The API definition(s) are based on
+* Commonalities r4.4 (0.9.0)
+* Identity and Consent Management r4.2 (0.5.0)
+
+## application-profiles 0.6.0
+
+**application-profiles 0.6.0 is an initial public version of this API.**
+
+Changes documented below are compared to version 0.5.0.
+
+- API definition **with inline documentation**:
+  - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.3/code/API_definitions/application-profiles.yaml&nocors)
+  - [View it on Swagger Editor](https://camaraproject.github.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/ApplicationProfiles/r2.3/code/API_definitions/application-profiles.yaml)
+  - OpenAPI [YAML spec file](https://github.com/camaraproject/ApplicationProfiles/blob/r2.3/code/API_definitions/application-profiles.yaml)
+
+### Breaking changes
+
+* `RateUnitEnum` values `Bps` and `Kbps` renamed to `bps` and `kbps` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `ComputeUnitEnum` values changed from `Kb`, `Mb`, `Gb`, `Tb` to `MB`, `GB`, `TB` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* PATCH request body no longer accepts `applicationProfileId`; the identifier is only passed as path parameter by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* operationId `readApplicationProfile` renamed to `getApplicationProfile` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinCPU` now limited to values between 0 and 1024 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinGPU` now limited to values between 0 and 64 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+* `Duration.value` now limited to a maximum of 999 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33 and https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Request bodies containing properties not declared in the API specification are now rejected with `400 INVALID_ARGUMENT` (Commonalities "Request body strictness" rule) by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+
+### Added
+
+* Added `x-correlator` response header to the 200 and 204 responses by @Kevsy in https://github.com/camaraproject/ApplicationProfiles/pull/38
+* Added test scenarios for request body validation, invalid path parameter, invalid `x-correlator`, 401 and 403 error cases by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+
+### Changed
+
+* Synced with CAMARA Commonalities r4.4 / 0.9.0 (previously 0.6): error responses aligned with the r4.4 response catalogue, mandatory `info.description` sections added and updated by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33 and https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Schema component names changed to UpperCamelCase (e.g. `TargetMinCpu`, `GpuVendorType`); property names are unchanged by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+* `RateUnitEnum` values `Bps` and `Kbps` renamed to `bps` and `kbps` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `ComputeUnitEnum` values changed from `Kb`, `Mb`, `Gb`, `Tb` to `MB`, `GB`, `TB` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* PATCH request body no longer accepts `applicationProfileId`; the identifier is only passed as path parameter by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* operationId `readApplicationProfile` renamed to `getApplicationProfile` by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinCPU` now limited to values between 0 and 1024 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* `targetMinGPU` now limited to values between 0 and 64 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+* `Duration.value` now limited to a maximum of 999 by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33 and https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Request bodies containing properties not declared in the API specification are now rejected with `400 INVALID_ARGUMENT` (Commonalities "Request body strictness" rule) by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/33
+* Tag and operation descriptions now mention compute resources as well as network quality by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+* Aligned test definitions with CAMARA r4.4 testing artifacts by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+
+### Fixed
+
+* Corrected the DELETE response code to `204` in the test definitions by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/35
+* Corrected the `externalDocs` description to "Product documentation at CAMARA" by @Kevsy in https://github.com/camaraproject/ApplicationProfiles/pull/38
+
+### Removed
+
+* Removed `400 OUT_OF_RANGE`, `403 INVALID_TOKEN_CONTEXT`, `404 IDENTIFIER_NOT_FOUND` and `429 QUOTA_EXCEEDED` error codes, which are not applicable to this API by @maheshc01 in https://github.com/camaraproject/ApplicationProfiles/pull/50
+
+**Full Changelog**: https://github.com/camaraproject/ApplicationProfiles/compare/r1.2...r2.3
 
 # r2.2
 
